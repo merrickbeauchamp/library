@@ -7,8 +7,16 @@ const bodyParser = require('body-parser')
 const multer = require('multer') 
 const upload = multer() 
 
-const { QuickDB } = require("quick.db");
-const db = new QuickDB();
+const { Database } = require("quickmongo") ;
+
+const db = new Database("mongodb+srv://sharonlews92:mongodb72@cluster0.u6bhg00.mongodb.net");
+
+db.on("ready", () => {
+    console.log("Connected to the database");
+});
+
+// top-level awaits
+db.connect(); 
 
 app.use(bodyParser.json()) 
 app.use(bodyParser.urlencoded({ extended: true })) 
