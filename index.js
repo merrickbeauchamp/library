@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
 async function database(id) {
   let blockedList = await db.get("blocked")
   let blocked = false;
-  if(blockedList.includes(id)) blocked = true
+  if(blockedList?.includes(id)) blocked = true
   let date = new Date().getDate()
   let todayData = await db.get("library_" + date)
   if(!todayData) {
@@ -45,7 +45,7 @@ async function database(id) {
   max = max ? max : 60
   let full = false
   if(max <= students) full = true
-  if(todayData.includes(id)) {
+  if(todayData?.includes(id)) {
     full = false
     await db.pull("library_" + date, id)
     entry = false
@@ -74,7 +74,7 @@ app.post('/block', async function(req, res) {
      await db.push("blocked", req.body.id)
     return res.send({success: true, blocked: true})
   }
-  if(blocked.includes(req.body.id)) {
+  if(blocked?.includes(req.body.id)) {
     await db.pull("blocked", req.body.id)
     return res.send({success: true, blocked: false})
   } else {
