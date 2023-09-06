@@ -15,8 +15,10 @@ db.on("ready", () => {
     console.log("Connected to the database");
 });
 
-// top-level awaits
-db.connect(); 
+async function load() {
+    await db.connect()
+}
+load()
 
 app.use(bodyParser.json()) 
 app.use(bodyParser.urlencoded({ extended: true })) 
