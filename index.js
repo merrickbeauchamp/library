@@ -99,4 +99,4 @@ app.get('/students', async function(req, res) {
   return res.send({success: true, students, max})
 })
 
-app.listen()
+app.listen(process.env.PORT || 3001)
