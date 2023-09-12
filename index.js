@@ -35,9 +35,6 @@ async function database(id) {
   let todayData = await db.get("library_" + date)
   if(!todayData) {
     todayData = await db.set("library_" + date, [])
-    if(await db.get("library_" + (date - 1))) {
-      await db.delete("library_" + (date - 1))
-    }
   }
   let entry = true
   let students = todayData.length
