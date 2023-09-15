@@ -29,7 +29,7 @@
         const beep = new Audio("./beep.mp3")
         if (textbox.value.length == 7) {
           text.innerHTML = "Loading..."
-          let res = await fetch("https://library-api.merrickbeaucha2.repl.co/scan", {
+          let res = await fetch("https://library-library.onrender.com/scan", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
