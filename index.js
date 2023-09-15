@@ -24,7 +24,7 @@ load()
 app.use(bodyParser.json()) 
 app.use(bodyParser.urlencoded({ extended: true })) 
 
-const html = path.join(__dirname, 'index');
+const html = path.join(__dirname, 'library');
 
 app.use('/', express.static(html));
 
