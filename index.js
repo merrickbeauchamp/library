@@ -6,6 +6,7 @@ app.use(cors());
 const bodyParser = require('body-parser')
 const multer = require('multer') 
 const upload = multer() 
+const path = require('path')
 
 const { Database } = require("quickmongo") ;
 
@@ -24,6 +25,14 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) 
 
 app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, '/index.html'));
+})
+
+app.get('/librarian', function(req, res) {
+    res.sendFile(path.join(__dirname, '/master.html'));
+})
+
+app.get('/ping', function(req, res) {
   res.send({success: true})
 })
 
