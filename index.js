@@ -26,6 +26,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '/index.html'));
+    res.sendFile(path.join(__dirname, '/beep.mp3'));
+    res.sendFile(path.join(__dirname, '/ding.mp3'));
 })
 
 app.get('/librarian', function(req, res) {
